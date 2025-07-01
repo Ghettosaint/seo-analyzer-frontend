@@ -18,7 +18,35 @@ interface ApiResponse {
     url: string;
     word_count: number;
     language: string;
-    [key: string]: any;
+    keyword_analysis?: string;
+    semantic_scores?: string;
+    content_structure?: string;
+    readability_analysis?: string;
+    sentiment_analysis?: string;
+    speed_analysis?: string;
+    seo_suggestions?: string;
+    content_gaps?: string;
+    advanced_keywords?: {
+      long_tail_keywords?: Array<{
+        keyword: string;
+        score: number;
+        status: string;
+        exists: boolean;
+        frequency: number;
+        locations: string[];
+        contexts: string[];
+        type: string;
+        type_explanation: string;
+        usage_suggestion: string;
+        score_explanation: string;
+        score_category: string;
+        placement_suggestions: unknown[];
+      }>;
+      collocations?: unknown[];
+      question_based?: unknown[];
+      topic_based?: unknown[];
+      semantic_variations?: unknown[];
+    };
   };
   error?: string;
 }
